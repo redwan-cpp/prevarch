@@ -49,14 +49,14 @@ export default function Hero() {
           transition={{ delay: 0.2, duration: 0.8 }}
           className="flex flex-col justify-center"
         >
-          <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-zinc-900 dark:text-white mb-8">
-            <span className="animated-text inline">Elevating Spaces</span>{' '}
-            <span className="animated-text inline">Through Creative</span>{' '}
-            <span className="animated-text inline">Architecture &</span>{' '}
-            <span className="animated-text inline">Interior Excellence</span>
+          <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-zinc-900 dark:text-white mb-8 tracking-wide">
+            <span className="animated-text inline tracking-wider">Elevating Spaces</span>{' '}
+            <span className="animated-text inline tracking-wider">Through Creative</span>{' '}
+            <span className="animated-text inline tracking-wider">Architecture &</span>{' '}
+            <span className="animated-text inline tracking-wider">Interior Excellence</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-8 max-w-xl leading-relaxed">
+          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 mb-8 max-w-xl leading-relaxed tracking-wide">
             From luxurious residential interiors to innovative commercial spaces — Preview Architect Engineers crafts stylish, functional, and personalized environments.
           </p>
           
