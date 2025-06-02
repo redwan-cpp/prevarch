@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { Send } from 'lucide-react';
 import { services } from '../../data/services';
-import { db } from '../lib/firebase'; // Updated path
+import { db } from '../../lib/firebase'; // Updated path
 import { collection, addDoc } from 'firebase/firestore';
 
 interface CursorHandlers {
