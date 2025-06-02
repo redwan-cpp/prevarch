@@ -94,7 +94,7 @@ export default function Footer({ cursorHandlers }: FooterProps) {
         </div>
         
         <div className="border-t border-zinc-200 dark:border-zinc-800 mt-12 pt-8 flex flex-col md:flex-row md:justify-between items-center text-zinc-500 dark:text-zinc-500 text-sm">
-          <p>© {currentYear} Preview Architect. All rights reserved.</p>
+          <p>© {currentYear} Preview Architect ENGINEERS. All rights reserved.</p>
           <div className="mt-4 md:mt-0 space-x-6">
             <a 
               href="#" 
