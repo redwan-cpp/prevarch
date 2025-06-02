@@ -1,9 +1,11 @@
+
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '../ui/Button';
+import { Button } from '../../../ui/Button'; // Adjust based on ui/Button location
 import { Send } from 'lucide-react';
-import { services } from '../../data/services';
-import { db } from '../lib/firebase'; // Updated path
+import { services } from '../../../../data/services'; // Adjust based on data/services location
+import { db } from '../../lib/firebase'; // Updated path
 import { collection, addDoc } from 'firebase/firestore';
 
 interface CursorHandlers {
