@@ -24,7 +24,7 @@ export default function Footer({ cursorHandlers }: FooterProps) {
               {...cursorHandlers}
             >
               <Home className="h-6 w-6 text-primary-600 dark:text-primary-500" />
-              <span>PREVIEW ARCHITECT</span>
+              <span>PREVIEW ARCHITECT ENGINEERS</span>
             </a>
             <p className="text-zinc-600 dark:text-zinc-400 mb-6 max-w-md">
               A modern interior design studio specializing in residential and commercial spaces, creating timeless and functional environments.
