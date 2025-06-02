@@ -89,31 +89,31 @@ export default function Contact({ cursorHandlers }: ContactProps) {
             <div>
               <h4 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">Email</h4>
               <a 
-                href="mailto:hello@preview-architect.com"
+                href="mailto:previewbd@gmail.com"
                 className="text-zinc-600 dark:text-zinc-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                 {...cursorHandlers}
               >
-                hello@preview-architect.com
+                previewbd@gmail.com
               </a>
             </div>
             
             <div>
               <h4 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">Phone</h4>
               <a 
-                href="tel:+1234567890"
+                href="tel:+8801819252989"
                 className="text-zinc-600 dark:text-zinc-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                 {...cursorHandlers}
               >
-                +1 (234) 567-890
+                +8801819-252989
               </a>
             </div>
             
             <div>
               <h4 className="text-lg font-semibold text-zinc-900 dark:text-white mb-2">Office</h4>
               <address className="not-italic text-zinc-600 dark:text-zinc-400">
-                123 Design Avenue<br />
-                Creative District, NY 10001<br />
-                United States
+                House 31, Road 1/D,9<br />
+                Nikunja-2, Khilkhet<br />
+                Dhaka-122, Bangladesh
               </address>
             </div>
           </div>
