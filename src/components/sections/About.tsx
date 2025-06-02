@@ -79,7 +79,7 @@ export default function About({ cursorHandlers }: AboutProps) {
           Crafting Beautiful Spaces Since 2015
         </h2>
         <p className="text-lg text-zinc-600 dark:text-zinc-400">
-          With over a decade of experience, Preview Architect has established itself as a leader in interior design and architecture, delivering exceptional spaces that inspire and delight.
+          With over a decade of experience, Preview Architect Engineers has established itself as a leader in interior design and architecture, delivering exceptional spaces that inspire and delight.
         </p>
       </motion.div>
       
