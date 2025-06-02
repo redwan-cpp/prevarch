@@ -48,7 +48,7 @@ export default function Header() {
             className="flex items-center space-x-2 font-display font-bold text-xl text-zinc-900 dark:text-white"
           >
             <Home className="h-6 w-6 text-primary-600 dark:text-primary-500" />
-            <span>PREVIEW ARCHITECT</span>
+            <span>PREVIEW ARCHITECT ENGINEERS</span>
           </Link>
           
           <nav className="hidden md:flex items-center space-x-8">
