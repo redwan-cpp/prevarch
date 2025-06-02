@@ -69,8 +69,8 @@ export default function Footer({ cursorHandlers }: FooterProps) {
           <div>
             <h3 className="font-display font-bold text-zinc-900 dark:text-white mb-4">Contact</h3>
             <address className="not-italic space-y-3 text-zinc-600 dark:text-zinc-400">
-              <p>House 31, Road 1/D,9</p>
-              <p>Nikunja-2, Khilkhet, Dhaka-122</p>
+              <p>House 31, Road 1/D</p>
+              <p>Nikunja-2, Khilkhet, Dhaka-1229</p>
               <p>
                 <a 
                   href="mailto:previewbd@gmail.com" 
