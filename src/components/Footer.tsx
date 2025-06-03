@@ -1,4 +1,4 @@
-import { Home, Instagram, Twitter, Linkedin, Facebook } from 'lucide-react';
+import { Home, Instagram, Linkedin, Facebook } from 'lucide-react';
 
 interface CursorHandlers {
   onMouseEnter: () => void;
@@ -32,10 +32,8 @@ export default function Footer({ cursorHandlers }: FooterProps) {
             <div className="flex space-x-4">
               {[
                 { icon: Instagram, label: 'Instagram', url: 'https://instagram.com/previewarchitect' },
-                { icon: Twitter, label: 'Twitter', url: 'https://twitter.com/previewarchitect' },
                 { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/company/previewinterior/' },
-                { icon: Facebook, label: 'Facebook', 
-                 url: 'https://www.facebook.com/previewarchitectsengineers' }
+                { icon: Facebook, label: 'Facebook', url: 'https://www.facebook.com/previewarchitectsengineers' }
               ].map(({ icon: Icon, label, url }) => (
                 <a 
                   key={label}
