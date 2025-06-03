@@ -11,6 +11,7 @@ export default function ProjectDetail() {
   const project = projects.find(p => p.id === Number(id));
 
   useEffect(() => {
+    // Scroll to top when component mounts
     window.scrollTo(0, 0);
   }, []);
 
@@ -26,7 +27,7 @@ export default function ProjectDetail() {
   }
 
   return (
-    <main className="pt-24">
+    <main className="pt-32">
       <div className="content-grid">
         <button 
           onClick={() => navigate(-1)}

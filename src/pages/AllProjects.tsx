@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { projects } from '../data/projects';
 
 export default function AllProjects() {
+  const location = useLocation();
+  
   return (
     <main className="pt-32">
       <div className="content-grid">
@@ -29,7 +31,10 @@ export default function AllProjects() {
               transition={{ delay: 0.1 * (index % 3), duration: 0.5 }}
               className="group relative overflow-hidden rounded-lg aspect-[3/4]"
             >
-              <Link to={`/projects/${project.id}`}>
+              <Link 
+                to={`/projects/${project.id}`}
+                state={{ from: location.pathname, scrollPosition: window.scrollY }}
+              >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-300 opacity-50 group-hover:opacity-70" />
                 
                 <img 
