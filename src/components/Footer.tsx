@@ -40,7 +40,7 @@ export default function Footer({ cursorHandlers }: FooterProps) {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-white dark:bg-zinc-800 p-2 rounded-full text-zinc-600 hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400 transition-colors"
+                  className="bg-white dark:bg-zinc-800 p-2 rounded-full text-zinc-600 hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400 transition-colors cursor-pointer"
                   aria-label={label}
                   {...cursorHandlers}
                 >
@@ -63,7 +63,7 @@ export default function Footer({ cursorHandlers }: FooterProps) {
                 <li key={item.name}>
                   <a 
                     href={item.href}
-                    className="text-zinc-600 hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400 transition-colors"
+                    className="text-zinc-600 hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400 transition-colors cursor-pointer"
                     {...cursorHandlers}
                   >
                     {item.name}
@@ -81,7 +81,7 @@ export default function Footer({ cursorHandlers }: FooterProps) {
               <p>
                 <a 
                   href="mailto:previewbd@gmail.com" 
-                  className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
                   {...cursorHandlers}
                 >
                   previewbd@gmail.com
@@ -90,7 +90,7 @@ export default function Footer({ cursorHandlers }: FooterProps) {
               <p>
                 <a 
                   href="tel:+8801819252989" 
-                  className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
                   {...cursorHandlers}
                 >
                   +8801819-252989
@@ -105,14 +105,14 @@ export default function Footer({ cursorHandlers }: FooterProps) {
           <div className="mt-4 md:mt-0 space-x-6">
             <a 
               href="/privacy-policy" 
-              className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
               {...cursorHandlers}
             >
               Privacy Policy
             </a>
             <a 
               href="/terms-of-service" 
-              className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
               {...cursorHandlers}
             >
               Terms of Service
