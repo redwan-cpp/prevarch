@@ -1,4 +1,4 @@
-import { Home, Instagram, Twitter, Linkedin, Github } from 'lucide-react';
+import { Home, Instagram, Twitter, Linkedin, Facebook } from 'lucide-react';
 
 interface CursorHandlers {
   onMouseEnter: () => void;
@@ -19,7 +19,7 @@ export default function Footer({ cursorHandlers }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <a 
-              href="#" 
+              href="/" 
               className="flex items-center space-x-2 font-display font-bold text-xl text-zinc-900 dark:text-white mb-4"
               {...cursorHandlers}
             >
@@ -31,14 +31,16 @@ export default function Footer({ cursorHandlers }: FooterProps) {
             </p>
             <div className="flex space-x-4">
               {[
-                { icon: Instagram, label: 'Instagram' },
-                { icon: Twitter, label: 'Twitter' },
-                { icon: Linkedin, label: 'LinkedIn' },
-                { icon: Github, label: 'GitHub' }
-              ].map(({ icon: Icon, label }) => (
+                { icon: Instagram, label: 'Instagram', url: 'https://instagram.com/previewarchitect' },
+                { icon: Twitter, label: 'Twitter', url: 'https://twitter.com/previewarchitect' },
+                { icon: Linkedin, label: 'LinkedIn', url: 'https://linkedin.com/company/previewarchitect' },
+                { icon: Facebook, label: 'Facebook', url: 'https://facebook.com/previewarchitect' }
+              ].map(({ icon: Icon, label, url }) => (
                 <a 
                   key={label}
-                  href="#"
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-white dark:bg-zinc-800 p-2 rounded-full text-zinc-600 hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400 transition-colors"
                   aria-label={label}
                   {...cursorHandlers}
@@ -52,14 +54,20 @@ export default function Footer({ cursorHandlers }: FooterProps) {
           <div>
             <h3 className="font-display font-bold text-zinc-900 dark:text-white mb-4">Navigation</h3>
             <ul className="space-y-3">
-              {['About', 'Services', 'Work', 'Contact', 'Careers'].map(item => (
-                <li key={item}>
+              {[
+                { name: 'About', href: '#about' },
+                { name: 'Services', href: '#services' },
+                { name: 'Work', href: '#projects' },
+                { name: 'Contact', href: '#contact' },
+                { name: 'Careers', href: '/careers' }
+              ].map(item => (
+                <li key={item.name}>
                   <a 
-                    href={`#${item.toLowerCase()}`}
+                    href={item.href}
                     className="text-zinc-600 hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400 transition-colors"
                     {...cursorHandlers}
                   >
-                    {item}
+                    {item.name}
                   </a>
                 </li>
               ))}
@@ -82,7 +90,7 @@ export default function Footer({ cursorHandlers }: FooterProps) {
               </p>
               <p>
                 <a 
-                  href="tel:+1234567890" 
+                  href="tel:+8801819252989" 
                   className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
                   {...cursorHandlers}
                 >
@@ -97,14 +105,14 @@ export default function Footer({ cursorHandlers }: FooterProps) {
           <p>© {currentYear} Preview Architect Engineers. All rights reserved.</p>
           <div className="mt-4 md:mt-0 space-x-6">
             <a 
-              href="#" 
+              href="/privacy-policy" 
               className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
               {...cursorHandlers}
             >
               Privacy Policy
             </a>
             <a 
-              href="#" 
+              href="/terms-of-service" 
               className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
               {...cursorHandlers}
             >
