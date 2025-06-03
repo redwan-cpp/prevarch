@@ -33,8 +33,9 @@ export default function Footer({ cursorHandlers }: FooterProps) {
               {[
                 { icon: Instagram, label: 'Instagram', url: 'https://instagram.com/previewarchitect' },
                 { icon: Twitter, label: 'Twitter', url: 'https://twitter.com/previewarchitect' },
-                { icon: Linkedin, label: 'LinkedIn', url: 'https://linkedin.com/company/previewarchitect' },
-                { icon: Facebook, label: 'Facebook', url: 'https://facebook.com/previewarchitect' }
+                { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/company/previewinterior/' },
+                { icon: Facebook, label: 'Facebook', 
+                 url: 'https://www.facebook.com/previewarchitectsengineers' }
               ].map(({ icon: Icon, label, url }) => (
                 <a 
                   key={label}
