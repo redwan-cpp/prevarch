@@ -10,10 +10,12 @@ export default function ProjectDetail() {
   const navigate = useNavigate();
   const project = projects.find(p => p.id === Number(id));
 
-  useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-  }, []);
+useEffect(() => {
+  const timer = setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, 0);
+  return () => clearTimeout(timer);
+}, []);;
 
   if (!project) {
     return (
