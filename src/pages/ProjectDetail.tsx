@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, Users, Home as HomeIcon, Clock } from 'lucide-react';
 import { Button } from '../components/ui/Button';
@@ -8,14 +8,22 @@ import { projects } from '../data/projects';
 export default function ProjectDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const project = projects.find(p => p.id === Number(id));
 
-useEffect(() => {
-  const timer = setTimeout(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, 0);
-  return () => clearTimeout(timer);
-}, []);;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const handleBack = () => {
+    if (location.state?.from) {
+      navigate(location.state.from, {
+        state: { scrollPosition: location.state?.scrollPosition }
+      });
+    } else {
+      navigate(-1);
+    }
+  };
 
   if (!project) {
     return (
@@ -32,7 +40,7 @@ useEffect(() => {
     <main className="pt-32">
       <div className="content-grid">
         <button 
-          onClick={() => navigate(-1)}
+          onClick={handleBack}
           className="inline-flex items-center text-zinc-600 hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400 mb-8"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
