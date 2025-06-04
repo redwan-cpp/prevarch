@@ -1,17 +1,17 @@
 import { Home, Instagram, Linkedin, Facebook } from 'lucide-react';
 
-interface CursorHandlers {
-  onMouseEnter: () => void;
-  onMouseLeave: () => void;
-  onClick: () => void;
-}
-
-interface FooterProps {
-  cursorHandlers: CursorHandlers;
-}
-
-export default function Footer({ cursorHandlers }: FooterProps) {
+export default function Footer() {
   const currentYear = new Date().getFullYear();
+  
+  const handleSmoothScroll = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   
   return (
     <footer className="bg-zinc-100 dark:bg-zinc-900 py-16">
@@ -21,7 +21,6 @@ export default function Footer({ cursorHandlers }: FooterProps) {
             <a 
               href="/" 
               className="flex items-center space-x-2 font-display font-bold text-xl text-zinc-900 dark:text-white mb-4"
-              {...cursorHandlers}
             >
               <Home className="h-6 w-6 text-primary-600 dark:text-primary-500" />
               <span>PREVIEW ARCHITECT ENGINEERS</span>
@@ -42,7 +41,6 @@ export default function Footer({ cursorHandlers }: FooterProps) {
                   rel="noopener noreferrer"
                   className="bg-white dark:bg-zinc-800 p-2 rounded-full text-zinc-600 hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400 transition-colors cursor-pointer"
                   aria-label={label}
-                  {...cursorHandlers}
                 >
                   <Icon className="h-5 w-5" />
                 </a>
@@ -54,20 +52,18 @@ export default function Footer({ cursorHandlers }: FooterProps) {
             <h3 className="font-display font-bold text-zinc-900 dark:text-white mb-4">Navigation</h3>
             <ul className="space-y-3">
               {[
-                { name: 'About', href: '#about' },
-                { name: 'Services', href: '#services' },
-                { name: 'Work', href: '#projects' },
-                { name: 'Contact', href: '#contact' },
-                { name: 'Careers', href: '/careers' }
+                { name: 'About', id: 'about' },
+                { name: 'Services', id: 'services' },
+                { name: 'Work', id: 'projects' },
+                { name: 'Contact', id: 'contact' }
               ].map(item => (
                 <li key={item.name}>
-                  <a 
-                    href={item.href}
+                  <button 
+                    onClick={() => handleSmoothScroll(item.id)}
                     className="text-zinc-600 hover:text-primary-600 dark:text-zinc-400 dark:hover:text-primary-400 transition-colors cursor-pointer"
-                    {...cursorHandlers}
                   >
                     {item.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -82,7 +78,6 @@ export default function Footer({ cursorHandlers }: FooterProps) {
                 <a 
                   href="mailto:previewbd@gmail.com" 
                   className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
-                  {...cursorHandlers}
                 >
                   previewbd@gmail.com
                 </a>
@@ -91,7 +86,6 @@ export default function Footer({ cursorHandlers }: FooterProps) {
                 <a 
                   href="tel:+8801819252989" 
                   className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
-                  {...cursorHandlers}
                 >
                   +8801819-252989
                 </a>
@@ -106,14 +100,12 @@ export default function Footer({ cursorHandlers }: FooterProps) {
             <a 
               href="/privacy-policy" 
               className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
-              {...cursorHandlers}
             >
               Privacy Policy
             </a>
             <a 
               href="/terms-of-service" 
               className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors cursor-pointer"
-              {...cursorHandlers}
             >
               Terms of Service
             </a>

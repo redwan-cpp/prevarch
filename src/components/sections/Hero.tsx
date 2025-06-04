@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { ArrowRight, Phone } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAnimatedText from '../../hooks/useAnimatedText';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Environment } from '@react-three/drei';
@@ -38,6 +38,7 @@ function HeroShape() {
 }
 
 export default function Hero() {
+  const navigate = useNavigate();
   useAnimatedText({ selector: '.animated-text', delay: 0.5, stagger: 0.015 });
 
   return (
@@ -80,8 +81,6 @@ export default function Hero() {
             <Button 
               variant="outline" 
               size="lg"
-              as={Link}
-              to="#services"
               onClick={() => {
                 const element = document.getElementById('services');
                 element?.scrollIntoView({ behavior: 'smooth' });
@@ -93,8 +92,7 @@ export default function Hero() {
             <Button 
               variant="outline" 
               size="lg"
-              as={Link}
-              to="/projects"
+              onClick={() => navigate('/projects')}
               className="group"
             >
               <span>View Portfolio</span>
