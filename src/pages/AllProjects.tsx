@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { projects } from '../data/projects';
 
 export default function AllProjects() {
   const location = useLocation();
+  const navigate = useNavigate();
   
   return (
     <main className="pt-32">
@@ -29,29 +30,29 @@ export default function AllProjects() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * (index % 3), duration: 0.5 }}
-              className="group relative overflow-hidden rounded-lg aspect-[3/4]"
+              className="group relative overflow-hidden rounded-lg aspect-[3/4] cursor-pointer"
+              onClick={() => {
+                navigate(`/projects/${project.id}`, {
+                  state: { from: location.pathname, scrollPosition: window.scrollY }
+                });
+              }}
             >
-              <Link 
-                to={`/projects/${project.id}`}
-                state={{ from: location.pathname, scrollPosition: window.scrollY }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-300 opacity-50 group-hover:opacity-70" />
-                
-                <img 
-                  src={project.imageUrl} 
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-                />
-                
-                <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">
-                  <div className="flex flex-col">
-                    <p className="text-zinc-300 text-sm mb-2">{project.category}</p>
-                    <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
-                    <p className="text-zinc-300 text-sm mb-2">{project.description}</p>
-                    <p className="text-sm font-mono mt-2">{project.year}</p>
-                  </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-300 opacity-50 group-hover:opacity-70" />
+              
+              <img 
+                src={project.imageUrl} 
+                alt={project.title}
+                className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+              />
+              
+              <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">
+                <div className="flex flex-col">
+                  <p className="text-zinc-300 text-sm mb-2">{project.category}</p>
+                  <h2 className="text-2xl font-bold mb-2">{project.title}</h2>
+                  <p className="text-zinc-300 text-sm mb-2">{project.description}</p>
+                  <p className="text-sm font-mono mt-2">{project.year}</p>
                 </div>
-              </Link>
+              </div>
             </motion.div>
           ))}
         </div>

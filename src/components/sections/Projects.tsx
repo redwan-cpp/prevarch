@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '../ui/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import useAnimatedText from '../../hooks/useAnimatedText';
 import { projects } from '../../data/projects';
 
 export default function Projects() {
   const [activeProject, setActiveProject] = useState<number | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
   
   useAnimatedText({ selector: '.projects-animated-text', stagger: 0.02 });
 
@@ -41,41 +42,44 @@ export default function Projects() {
             className="group relative overflow-hidden rounded-lg aspect-[4/3]"
             onMouseEnter={() => setActiveProject(project.id)}
             onMouseLeave={() => setActiveProject(null)}
+            onClick={() => {
+              navigate(`/projects/${project.id}`, {
+                state: { from: location.pathname }
+              });
+            }}
           >
-            <Link to={`/projects/${project.id}`}>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-300 opacity-50 group-hover:opacity-70" />
-              
-              <img 
-                src={project.imageUrl} 
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
-              />
-              
-              <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">
-                <div className="flex justify-between items-end">
-                  <div>
-                    <p className="text-zinc-300 text-sm mb-2">{project.category}</p>
-                    <h3 className="text-2xl font-bold mb-1">{project.title}</h3>
-                    
-                    <AnimatePresence>
-                      {activeProject === project.id && (
-                        <motion.p
-                          initial={{ opacity: 0, height: 0 }}
-                          animate={{ opacity: 1, height: 'auto' }}
-                          exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="text-zinc-300 text-sm max-w-md"
-                        >
-                          {project.description}
-                        </motion.p>
-                      )}
-                    </AnimatePresence>
-                  </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-300 opacity-50 group-hover:opacity-70" />
+            
+            <img 
+              src={project.imageUrl} 
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+            />
+            
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white">
+              <div className="flex justify-between items-end">
+                <div>
+                  <p className="text-zinc-300 text-sm mb-2">{project.category}</p>
+                  <h3 className="text-2xl font-bold mb-1">{project.title}</h3>
                   
-                  <p className="text-sm font-mono">{project.year}</p>
+                  <AnimatePresence>
+                    {activeProject === project.id && (
+                      <motion.p
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="text-zinc-300 text-sm max-w-md"
+                      >
+                        {project.description}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
                 </div>
+                
+                <p className="text-sm font-mono">{project.year}</p>
               </div>
-            </Link>
+            </div>
           </motion.div>
         ))}
       </div>
