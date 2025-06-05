@@ -46,7 +46,7 @@ function App() {
         <div className="relative">
           <AnimatePresence mode="wait">
             {loading ? (
-              <Loader key="loader" onComplete={() => setLoading(false)} />
+              <Loader key="loader\" onComplete={() => setLoading(false)} />
             ) : (
               <>
                 <Header />
