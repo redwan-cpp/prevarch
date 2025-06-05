@@ -25,7 +25,7 @@ export default function useAnimatedText({ selector, delay = 0, stagger = 0.02 }:
       
       // Create wrapper container for the text
       const container = document.createElement('div');
-      container.className = 'reveal-text-container inline-block';
+      container.className = 'reveal-text-container inline-block whitespace-normal';
       
       // Split text into words and create spans for each
       const words = text.split(' ');
@@ -33,7 +33,7 @@ export default function useAnimatedText({ selector, delay = 0, stagger = 0.02 }:
       words.forEach((word, i) => {
         // Create a wrapper for the word
         const wordWrapper = document.createElement('span');
-        wordWrapper.className = 'inline-block mr-[0.25em]';
+        wordWrapper.className = 'inline-block mr-[0.25em] mb-[0.25em]';
         
         // Split the word into characters and create spans for each
         Array.from(word).forEach((char) => {

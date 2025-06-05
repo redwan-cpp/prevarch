@@ -22,9 +22,9 @@ export default function Projects() {
         viewport={{ once: true }}
         className="text-center max-w-3xl mx-auto mb-16"
       >
-        <h2 className="font-display font-bold text-3xl md:text-4xl text-zinc-900 dark:text-white mb-6">
-          <span className="projects-animated-text">Featured projects</span>
-          <span className="projects-animated-text block">and case studies</span>
+        <h2 className="font-display font-bold text-3xl md:text-4xl text-zinc-900 dark:text-white mb-6 whitespace-normal">
+          <span className="projects-animated-text inline">Featured projects</span>{' '}
+          <span className="projects-animated-text inline">and case studies</span>
         </h2>
         <p className="text-lg text-zinc-600 dark:text-zinc-400">
           Explore our portfolio of award-winning interior design projects that showcase our approach to creating beautiful, functional spaces.

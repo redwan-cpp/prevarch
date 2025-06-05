@@ -75,8 +75,9 @@ export default function About({ cursorHandlers }: AboutProps) {
         viewport={{ once: true }}
         className="text-center max-w-3xl mx-auto mb-16"
       >
-        <h2 className="font-display font-bold text-3xl md:text-4xl text-zinc-900 dark:text-white mb-6">
-          Crafting Beautiful Spaces Since 2015
+        <h2 className="font-display font-bold text-3xl md:text-4xl text-zinc-900 dark:text-white mb-6 whitespace-normal">
+          <span className="animated-text inline">Crafting Beautiful</span>{' '}
+          <span className="animated-text inline">Spaces Since 2015</span>
         </h2>
         <p className="text-lg text-zinc-600 dark:text-zinc-400">
           With over a decade of experience, Preview Architect Engineers has established itself as a leader in interior design and architecture, delivering exceptional spaces that inspire and delight.
