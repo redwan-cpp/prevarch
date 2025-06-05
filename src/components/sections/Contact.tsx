@@ -1,12 +1,8 @@
-
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { Send } from 'lucide-react';
 import { services } from '../../data/services';
-import { db } from '../../lib/firebase'; // Updated path
-import { collection, addDoc } from 'firebase/firestore';
 
 interface CursorHandlers {
   onMouseEnter: () => void;
@@ -40,12 +36,19 @@ export default function Contact({ cursorHandlers }: ContactProps) {
     setSubmitStatus('idle');
 
     try {
-      const docRef = await addDoc(collection(db, 'contacts'), {
-        ...formState,
-        createdAt: new Date().toISOString()
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
+        },
+        body: JSON.stringify(formState)
       });
 
-      console.log('Document written with ID: ', docRef.id);
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
       setSubmitStatus('success');
       setFormState({
         name: '',
@@ -54,7 +57,7 @@ export default function Contact({ cursorHandlers }: ContactProps) {
         service: '',
       });
     } catch (error) {
-      console.error('Error adding document: ', error);
+      console.error('Error sending message:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
